@@ -14,8 +14,8 @@ class BusTypeWiseFilterView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            "Bus Type",
+          Text(
+            "Bus Type (${context.watch<TripFilterCubit>().state.selectedBusTypes.length})",
           ),
           Wrap(
             crossAxisAlignment: WrapCrossAlignment.start,
@@ -63,8 +63,8 @@ class BusOperatorWiseFilterView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            "Bus Operator",
+          Text(
+            "Bus Operator (${context.watch<TripFilterCubit>().state.selectedBusOperators.length})",
           ),
           Wrap(
             crossAxisAlignment: WrapCrossAlignment.start,

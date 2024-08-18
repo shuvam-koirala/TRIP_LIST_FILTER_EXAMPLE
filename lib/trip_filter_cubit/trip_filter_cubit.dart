@@ -51,11 +51,21 @@ class TripFilterCubit extends Cubit<TripFilterState> {
   }
 
   chooseSortingFilter(SortingFilter sortBy) {
-    emit(_copywith(selectedSortingFilter: sortBy));
+    if (state.selectedSortingFilter == sortBy) {
+      state.selectedSortingFilter = null;
+      emit(_copywith(selectedSortingFilter: state.selectedSortingFilter));
+    } else {
+      emit(_copywith(selectedSortingFilter: sortBy));
+    }
   }
 
   chooseShowOnlyFilter(ShowOnlyFilter showOnly) {
-    emit(_copywith(selectedShowOnlyFilter: showOnly));
+    if (state.selectedShowOnlyFilter == showOnly) {
+      state.selectedShowOnlyFilter = null;
+      emit(_copywith(selectedShowOnlyFilter: state.selectedShowOnlyFilter));
+    } else {
+      emit(_copywith(selectedShowOnlyFilter: showOnly));
+    }
   }
 
   resetFilter(Set<Trip> trips) {
